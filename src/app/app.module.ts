@@ -1,5 +1,6 @@
 import { NgModule } from '@angular/core';
 import { BrowserModule, provideClientHydration, withEventReplay } from '@angular/platform-browser';
+import { HttpClientModule, provideHttpClient, withFetch } from '@angular/common/http';
 import { NgxSpinnerModule } from "ngx-spinner";
 
 
@@ -9,6 +10,7 @@ import { AdminModule } from './admin/admin.module';
 import { UiModule } from './ui/ui.module';
 import { provideAnimationsAsync } from '@angular/platform-browser/animations/async';
 import { BaseComponent } from './base/base.component';
+
 
 @NgModule({
   declarations: [
@@ -21,8 +23,13 @@ import { BaseComponent } from './base/base.component';
     AdminModule,
     UiModule,
     NgxSpinnerModule,
+    HttpClientModule
   ]  ,
   providers: [
+    provideHttpClient(withFetch()),
+    {provide:"baseUrl", useValue:"https://localhost:7043/api",multi:true
+
+    },
     provideClientHydration(withEventReplay()),
     provideAnimationsAsync()
   ],
