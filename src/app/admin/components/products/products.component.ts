@@ -18,27 +18,7 @@ export class ProductsComponent extends BaseComponent implements OnInit {
   }
   ngOnInit(): void {
     this.showwSpinner(SpinnerType.BallScaleMultiple);
-    this.httpClientService.get({
-      controller:"Product"
-    }).subscribe(data=> console.log(data))
-
-    // this.httpClientService.post({
-    //      controller: "Product"
-    //    }, {
-    //      name: "Kalem",
-    //      stock: 100,
-    //      price: 15
-    //    }).subscribe();
-
-    //  this.httpClientService.put({
-    //    controller: "Product",
-    //  }, {
-    //    id: "50569d32-ba3d-43fe-943a-fe30356100b5",
-    //    name: "Renkli Kağıt",
-    //    stock: 1500,
-    //    price: 5.5
-    //  }).subscribe()
-
+    
   }
 
 }
